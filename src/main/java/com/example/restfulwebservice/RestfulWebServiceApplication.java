@@ -1,0 +1,25 @@
+package com.example.restfulwebservice;
+
+import java.util.Locale;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
+@SpringBootApplication
+public class RestfulWebServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(RestfulWebServiceApplication.class, args);
+    }
+
+    // TODO: 2021-08-15 resource bundle에 대해 공부
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.KOREA);
+        return localeResolver;
+    }
+
+}

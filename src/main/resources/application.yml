@@ -1,0 +1,36 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    org.springframework: debug
+
+# todo 국제화 message 처리 방법
+spring:
+  messages:
+    basename: messages
+#  security:
+#    user:
+#      name: username
+#      password: passw0rd
+
+  jpa:
+    hibernate:
+      ddl-auto: 'create-drop'
+    # spring 2.5 부터 hibernate, sql 로드 순서가 sql이 우선 순위가 높아졌기 때문에
+    # 다음과 같은 설정 필요
+    defer-datasource-initialization: true
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+
+# todo actuator 정보
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
